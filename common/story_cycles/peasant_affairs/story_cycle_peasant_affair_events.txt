@@ -1,0 +1,108 @@
+﻿###############################
+# Peasant wants to marry you
+###############################
+peasant_affair.3004 = {
+	type = character_event
+	title = peasant_affair.3004.t
+	desc = peasant_affair.3004.desc
+	theme = love
+	left_portrait = scope:peasant_character
+	right_portrait = scope:peasant_child
+	trigger = {
+		can_marry_character_trigger = {
+			CHARACTER = scope:story.var:peasant_character
+		}
+		scope:story.var:peasant_character = {
+			can_marry_character_trigger = {
+				CHARACTER = root
+			}
+		}
+		scope:story = {
+			NOT = {
+				has_variable = had_marriage_request_event
+			}
+		}
+	}
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			add = 2
+			has_relation_lover = scope:story.var:peasant_character
+		}
+		modifier = {
+			factor = 0.2
+			scope:story.var:peasant_character = {
+				opinion = {
+					target = root
+					value < 10
+				}
+			}
+		}
+	}
+	immediate = {
+		scope:story = {
+			var:peasant_character = {
+				save_scope_as = peasant_character
+				if = {
+					limit = {
+						root = {
+							is_ai = no
+						}
+					}
+					assign_quirk_effect = yes
+				}
+			}
+			if = {
+				limit = {
+					exists = var:peasant_child
+				}
+				var:peasant_child = {
+					save_scope_as = peasant_child
+				}
+			}
+			set_variable = {
+				name = had_marriage_request_event
+				value = yes
+			}
+		}
+	}
+	#Yes, of course!
+	option = {
+		name = peasant_affair.3004.a
+		if = {
+			limit = {
+				is_female = yes
+			}
+			marry_matrilineal = scope:peasant_character
+		}
+		else = {
+			marry = scope:peasant_character
+		}
+	}
+	#We can be lovers instead
+	option = {
+		name = peasant_affair.3004.b
+		trigger = {
+			can_set_relation_lover_trigger = {
+				CHARACTER = scope:peasant_character
+			}
+		}
+		set_relation_lover = scope:peasant_character
+	}
+	#We can be lovers instead
+	option = {
+		name = peasant_affair.3004.c
+		trigger = {
+			can_take_new_concubine_trigger = yes
+		}
+		make_concubine = scope:peasant_character
+	}
+	#Nope
+	option = {
+		name = peasant_affair.3004.d
+		reverse_add_opinion = {
+			target = scope:peasant_character
+			modifier = peasant_affair_rejected_lover_opinion
+		}
+	}
+}

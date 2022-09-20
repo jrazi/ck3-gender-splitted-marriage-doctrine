@@ -1,0 +1,53 @@
+﻿polygamous_max_spouses = 4
+polygamous_max_concubines = 3
+
+
+max_number_of_spouses_for_character = {
+	value = {
+		if = {
+			limit = { 
+				can_potentially_have_more_than_one_spouses = yes 
+				realm_law_allows_multiple_spouses_for_character_gender = yes
+			}
+			value = polygamous_max_spouses
+		}
+		else = {
+			value = 1
+		}
+	}
+}
+
+
+max_number_of_concubines_for_character = {
+	value = {
+		if = {
+			limit = { 
+				can_potentially_take_concubines_trigger = yes 
+				realm_law_allows_multiple_concubines_for_character_gender = yes
+			}
+			value = polygamous_max_concubines
+		}
+		else = {
+			value = 0
+		}
+	}
+}
+
+
+number_of_remaining_spouses = {
+	value = max_number_of_spouses_for_character
+	every_consort = {
+		limit = { is_concubine = no }
+		subtract = 1
+	}
+	min = 0
+}
+
+
+number_of_remaining_concubines = {
+	value = max_number_of_concubines_for_character
+	every_concubine = {
+		subtract = 1
+	}
+	min = 0
+}

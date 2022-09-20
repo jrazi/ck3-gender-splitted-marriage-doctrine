@@ -1,0 +1,7 @@
+﻿
+hold_court_8100_adopted_modifier = {
+	icon = social_negative
+	diplomacy = -2
+	dynasty_opinion = -10
+	general_opinion = -5
+}

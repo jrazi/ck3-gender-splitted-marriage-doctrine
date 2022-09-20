@@ -1,0 +1,32 @@
+﻿l_english:
+ doctrine_male_marriage_type_name:0 "Male Marriage Type"
+ doctrine_male_monogamy_name:0 "Male Monogamous"
+ doctrine_male_monogamy_desc:0 "Marriage is a sacred bond between two individuals. Attempting to form such a bond with multiple women at once is sacrilege."
+ doctrine_male_polygamy_name:0 "Male Polygamous"
+ doctrine_male_polygamy_desc:0 "Since marriage is a holy union, having multiple wives is clearly more holy than having just a single marriage — so long as each marriage is holy in and of itself."
+ doctrine_male_concubines_name:1 "Male Concubinage"
+ doctrine_male_concubines_desc:1 "Marriage is a sacred bond, but as long as their wife takes priority a man may be permitted to have concubines to engage with as well."
+
+
+
+ doctrine_parameter_number_of_wives:0 "Male rulers, if allowed by [gender_law|E], can have up to $VALUE|V0$ spouses"
+ doctrine_parameter_number_of_female_consorts:0 "Male rulers, if allowed by [gender_law|E], can have up to $VALUE|V0$ [concubines|E]"
+
+
+ doctrine_female_marriage_type_name:0 "Female Marriage Type"
+ doctrine_female_monogamy_name:0 "Female Monogamous"
+ doctrine_female_monogamy_desc:0 "Marriage is a sacred bond between two individuals. Attempting to form such a bond with multiple men at once is sacrilege."
+ doctrine_female_polygamy_name:0 "Female Polygamous"
+ doctrine_female_polygamy_desc:0 "Since marriage is a holy union, having multiple husbands is clearly more holy than having just a single marriage — so long as each marriage is holy in and of itself."
+ doctrine_female_concubines_name:1 "Female Concubinage"
+ doctrine_female_concubines_desc:1 "Marriage is a sacred bond, but as long as their husband takes priority a woman may be permitted to have concubines to engage with as well."
+
+
+
+ doctrine_parameter_number_of_husbands:0 "Female rulers, if allowed by [gender_law|E], can have up to $VALUE|V0$ spouses"
+ doctrine_parameter_number_of_male_consorts:0 "Female rulers, if allowed by [gender_law|E], can have up to $VALUE|V0$ [concubines|E]"
+
+ doctrine_parameter_number_of_consorts:0 ""
+ doctrine_parameter_number_of_spouses:0 ""
+ doctrine_parameter_number_of_spouses_1:0 ""
+ doctrine_parameter_spouse_piety_loss_disabled:0 ""

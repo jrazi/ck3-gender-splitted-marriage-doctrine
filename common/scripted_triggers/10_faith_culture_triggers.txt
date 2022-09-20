@@ -1,0 +1,128 @@
+﻿faith_has_negative_bias_towards_gender = {
+	OR = {
+		AND = {
+			is_female = yes
+			faith = {
+				has_doctrine = doctrine_gender_male_dominated
+			}
+		}
+		AND = {
+			is_male = yes
+			faith = {
+				has_doctrine = doctrine_gender_female_dominated
+			}
+		}
+	}
+}
+
+faith_is_intolerant_towards_insubordination = {
+	faith = {
+		NOT = {
+			has_doctrine = doctrine_pluralism_pluralistic
+		}
+	}
+}
+
+faith_is_very_intolerant_towards_insubordination = {
+	faith = {
+		has_doctrine = doctrine_pluralism_fundamentalist
+	}
+}
+
+faith_allows_male_polygamy_trigger = {
+	faith = {
+		has_doctrine = doctrine_male_polygamy
+	}
+}
+
+faith_allows_female_polygamy_trigger = {
+	faith = {
+		has_doctrine = doctrine_female_polygamy
+	}
+}
+
+faith_allows_polygamy_for_actor_trigger = {
+	trigger_if = {
+		limit = {
+			is_male = yes
+		}
+		faith_allows_male_polygamy_trigger = yes
+	}
+	trigger_else_if = {
+		limit = {
+			is_female = yes
+		}
+		faith_allows_female_polygamy_trigger = yes
+	}
+	trigger_else = {
+		always = no
+	}
+}
+
+faith_invalidates_cultural_polygamy_for_actor_trigger = {
+	trigger_if = {
+		limit = {
+			culture = {
+				has_cultural_tradition = tradition_polygamous
+			}
+			faith_allows_polygamy_for_actor_trigger = no
+		}
+		faith_is_intolerant_towards_insubordination = yes
+		OR = {
+			faith_has_negative_bias_towards_gender = yes
+			faith_is_very_intolerant_towards_insubordination = yes
+		}
+	}
+	trigger_else = {
+		always = no
+	}
+}
+
+faith_allows_males_to_have_concubine_trigger = {
+	faith = {
+		has_doctrine = doctrine_male_concubines
+	}
+}
+
+faith_allows_females_to_have_concubine_trigger = {
+	faith = {
+		has_doctrine = doctrine_female_concubines
+	}
+}
+
+faith_allows_concubines_for_actor_trigger = {
+	trigger_if = {
+		limit = {
+			is_male = yes
+		}
+		faith_allows_males_to_have_concubine_trigger = yes
+	}
+	trigger_else_if = {
+		limit = {
+			is_female = yes
+		}
+		faith_allows_females_to_have_concubine_trigger = yes
+	}
+	trigger_else = {
+		always = no
+	}
+}
+
+faith_invalidates_cultural_concubines_for_actor_trigger = {
+	trigger_if = {
+		limit = {
+			culture = {
+				has_cultural_tradition = tradition_concubines
+			}
+			faith_allows_concubines_for_actor_trigger = no
+		}
+		faith_is_intolerant_towards_insubordination = yes
+		OR = {
+			faith_has_negative_bias_towards_gender = yes
+			faith_is_very_intolerant_towards_insubordination = yes
+		}
+	}
+	trigger_else = {
+		always = no
+	}
+}

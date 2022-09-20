@@ -1,0 +1,27 @@
+﻿realm_law_allows_multiple_spouses_for_character_gender = {
+	trigger_if = {
+		limit = {is_male = yes}
+		has_realm_law_flag = men_can_have_multiple_spouses
+	}
+	trigger_else_if = {
+		limit = {is_female = yes}
+		has_realm_law_flag = women_can_have_multiple_spouses
+	}
+	trigger_else = {
+		always = no
+	}
+}
+
+realm_law_allows_multiple_concubines_for_character_gender = {
+	trigger_if = {
+		limit = {is_male = yes}
+		has_realm_law_flag = men_can_have_consorts
+	}
+	trigger_else_if = {
+		limit = {is_female = yes}
+		has_realm_law_flag = women_can_have_consorts
+	}
+	trigger_else = {
+		always = no
+	}
+}

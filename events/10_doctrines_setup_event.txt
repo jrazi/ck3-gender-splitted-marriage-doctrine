@@ -1,0 +1,68 @@
+﻿namespace = doctrines_setup
+doctrines_setup.0001 = {
+	type = empty
+	hidden = yes
+	immediate = {
+		every_religion_global = {
+			every_faith = {
+				if = {
+					limit = {
+						has_doctrine = doctrine_polygamy
+					}
+					remove_doctrine = doctrine_polygamy
+					if = {
+						limit = {
+							has_doctrine = doctrine_gender_male_dominated
+						}
+						add_doctrine = doctrine_male_polygamy
+						add_doctrine = doctrine_female_monogamy
+					}
+					else_if = {
+						limit = {
+							has_doctrine = doctrine_gender_female_dominated
+						}
+						add_doctrine = doctrine_female_polygamy
+						add_doctrine = doctrine_male_monogamy
+					}
+					else = {
+						add_doctrine = doctrine_male_polygamy
+						add_doctrine = doctrine_female_polygamy
+					}
+				}
+				else_if = {
+					limit = {
+						has_doctrine = doctrine_concubines
+					}
+					remove_doctrine = doctrine_concubines
+					if = {
+						limit = {
+							has_doctrine = doctrine_gender_male_dominated
+						}
+						add_doctrine = doctrine_male_concubines
+						add_doctrine = doctrine_female_monogamy
+					}
+					else_if = {
+						limit = {
+							has_doctrine = doctrine_gender_female_dominated
+						}
+						add_doctrine = doctrine_female_concubines
+						add_doctrine = doctrine_male_monogamy
+					}
+					else = {
+						add_doctrine = doctrine_male_concubines
+						add_doctrine = doctrine_female_concubines
+					}
+				}
+				else = {
+					if = {
+						limit = { has_doctrine = doctrine_monogamy }
+						remove_doctrine = doctrine_monogamy
+					}
+					
+					add_doctrine = doctrine_male_monogamy
+					add_doctrine = doctrine_female_monogamy
+				}
+			}
+		}
+	}
+}

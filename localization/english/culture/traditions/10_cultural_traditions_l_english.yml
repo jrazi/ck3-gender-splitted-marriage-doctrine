@@ -1,0 +1,9 @@
+﻿l_english:
+ culture_tradition_events.0100.t:0 "A Clash of Culture and Faith"
+ culture_tradition_events.0100.desc:0 "A missive from [head_of_faith.GetTitledFirstName] has arrived. It starts off with pleasantries, and outlines the importance I hold in the eyes of the [culture_scope.GetName] people.\n\n"
+ culture_tradition_events.0100.tradition_monogamous:0 ""You must understand that for as long as your people practice monogamy, you are in violation of [faith_scope.GetAdjective] doctrine! I only wish for your salvation. The duty of every good [faith_scope.GetAdjectiveNoTooltip] cannot be fulfilled with but one spouse." the missive reads."
+ culture_tradition_events.0100.tradition_polygamous:0 ""Your practice of polygamy is in strict opposition of [faith_scope.GetAdjective] doctrine, and a sin in the eyes of [faith_scope.HighGodName]! I only wish for your salvation. Please, lead your people into the light and shed yourselves of excess spouses!" the missive reads."
+ culture_tradition_events.0100.tradition_concubines:0 ""Your practice of concubinage is not supported by [faith_scope.GetAdjective] doctrine, only through proper marriage will [faith_scope.HighGodName] smile upon your people! I only wish for your salvation. Set aside your concubines, for the good of us all." the missive reads."
+ culture_tradition_events.0100.end:0 "\n\nA dilemma indeed... which do I value more? The customs of my people, or the doctrines of our faith?"
+ culture_tradition_events.0100.a:0 "We must uphold [faith_scope.GetAdjectiveNoTooltip] doctrine."
+ culture_tradition_events.0100.b:0 "The customs of my people are more important!"

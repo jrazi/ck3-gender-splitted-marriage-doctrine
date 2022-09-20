@@ -1,0 +1,1 @@
+﻿tradition_directly_opposed_to_faith_penalty = 6000

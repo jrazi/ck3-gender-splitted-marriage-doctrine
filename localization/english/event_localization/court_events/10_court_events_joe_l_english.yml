@@ -1,0 +1,27 @@
+﻿l_english:
+
+ # # Novel Perspectives
+ court.8120.t:0 "Novel Perspectives"
+ court.8120.desc.intro:0 "I sit quietly, listening to my [ROOT.Char.Custom2('DescriptorNegative', SCOPE.sC('accuser') )] [ROOT.Char.Custom2('RelationToMeShort', SCOPE.sC('accuser'))], [accuser.GetTitledFirstName], locked in keen theological debate with my [ROOT.Char.Custom2('RelationToMeShort', SCOPE.sC('refuter'))], [refuter.GetTitledFirstName]. \n\nThe latter entreats [refuter.Custom('quirk_pos_adverb')],"
+ court.8120.desc.same_religion:0 ""...but [refuter.GetFaith.GetNameNoTooltip] #EMP is#! closer to the true word of [refuter.GetFaith.HighGodName]; it is the purest distillation of the [refuter.GetFaith.GetReligion.GetAdjectiveNoTooltip] revelations."\n\n[accuser.GetTitledFirstNameNoTooltip] scoffs, [accuser.Custom('quirk_neg_pp')]. "Read the [accuser.GetFaith.ReligiousText] and you will see that"
+ court.8120.desc.other_religion:1 ""...but the backwards [accuser.GetFaith.GetReligion.GetAdjectiveNoTooltip] teachings cannot earnestly be compared to those of our [refuter.GetFaith.GetReligion.GetNameNoTooltip]; [accuser.GetFaith.HighGodNamePossessive] truth is a mere distortion of [refuter.GetFaith.HighGodNamePossessive]."\n\n[accuser.GetTitledFirstNameNoTooltip] scoffs, [accuser.Custom('quirk_neg_pp')]. "Think about it deeply and you will see that"
+
+ court.8120.desc.marriage:0 "the sacred bonds of matrimony should be shared with only one other; that is how we draw closer to [accuser.GetFaith.PositiveAfterLife].""
+ court.8120.desc.male_marriage:0 "a man's love should be dedicated to no one but her only wife; that is how we draw closer to [accuser.GetFaith.PositiveAfterLife].""
+ court.8120.desc.female_marriage:0 "a woman's love should be dedicated to no one but her sole husband; that is how we draw closer to [accuser.GetFaith.PositiveAfterLife].""
+ court.8120.desc.divorce:0 "divorce is for those who are not willing to dedicate themselves to another unconditionally, pursuing purity and [accuser.GetFaith.PositiveAfterLife]. \n\n"
+ court.8120.desc.adultery:0 "[accuser.GetFaith.CreatorName] did not intend for us to fornicate outside of marriage and chase our passions; that is #EMP why#! we have these bonds!"
+ court.8120.desc.witchcraft:1 "the unholy rituals of witches stand in contradiction to the pursuit of [accuser.GetFaith.PositiveAfterLife].""
+ court.8120.desc.equality:0 "[accuser.GetFaith.CreatorName] created men and women together, neither subservient to the other, at the beginning of time.""
+ court.8120.desc.cosanguity:0 "[accuser.GetFaith.CreatorName] did not intend for members of the same family to intermarry or breed; this a temptation that defies nature!""
+
+ court.8120.desc.outro:1 "\n\n"This is why I do not talk to the lost..." [refuter.GetTitledFirstNameNoTooltip] sighs with frustration. "If you will not listen to the truth, I only hope you are somehow spared infernal [accuser.GetFaith.NegativeAfterLife].""
+ court.8120.a.accuser:0 "[accuser.GetSheHe|U] has a point though, [refuter.GetFirstNameNoTooltip]."
+ court.8120.a.refuter:0 "[refuter.GetSheHe|U] has a point though, [accuser.GetFirstNameNoTooltip].""
+ court.8120.c:0 "Come friends, there are many ways to honor the creator."
+ court.8120.d:0 "Look here, these are the [ROOT.Char.GetFaith.GetAdjectiveNoTooltip] truths!"
+ court.8120.d.tt:0 "Every Zealous [THIS.Char.GetFaith.GetAdjectiveNoTooltip] [vassal|E], [courtier|E], and [guest|E]"
+ court.8120.e:0 "I don't want to hear this kind of talk again, [accuser.GetFirstNameNoTooltip]."
+ court.8120.f:0 "It is not our place to debate the divine."
+ my_holy_book:0 "[ROOT.Char.GetTitledFirstNamePossessiveNoTooltip] [ROOT.Char.GetFaith.ReligiousText|U]"
+ my_holy_book_description:0 "[ROOT.Char.GetTitledFirstNameNoTooltip] of [ROOT.Char.GetPrimaryTitle.GetBaseNameNoTierPossessiveNoTooltip] personal bound collection of [ROOT.Char.GetFaith.GetAdjectiveNoTooltip] teachings, faced with a golden [ROOT.Char.GetFaith.ReligiousSymbol]."

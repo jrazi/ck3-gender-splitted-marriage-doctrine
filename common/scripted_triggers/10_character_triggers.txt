@@ -1,0 +1,505 @@
+﻿
+
+can_potentially_have_more_than_one_spouses = {
+	NOT = {
+		culture = {
+			has_cultural_tradition = tradition_monogamous
+		}
+	}
+	OR = {
+		faith_allows_polygamy_for_actor_trigger = yes
+		AND = {
+			culture = {
+				has_cultural_tradition = tradition_polygamous
+			}
+			faith_invalidates_cultural_polygamy_for_actor_trigger = no
+		}
+	}
+}
+
+can_potentially_take_concubines_trigger = {
+	NOT = {
+		culture = {
+			has_cultural_tradition = tradition_monogamous
+		}
+	}
+	OR = {
+		faith_allows_concubines_for_actor_trigger = yes
+		AND = {
+			culture = {
+				has_cultural_tradition = tradition_concubines
+			}
+			faith_invalidates_cultural_concubines_for_actor_trigger = no
+		}
+	}
+}
+
+# ---------------------
+faith_allows_marry_to_someone_already_married_trigger = {
+	trigger_if = {
+		limit = {
+			is_male = yes
+		}
+		faith_allows_female_polygamy_trigger = yes
+	}
+	trigger_else_if = {
+		limit = {
+			is_female = yes
+		}
+		faith_allows_male_polygamy_trigger = yes
+	}
+	trigger_else = {
+		always = no
+	}
+}
+
+faith_invalidates_cultural_polygamy_when_marrying_to_someone_already_married_trigger = {
+	trigger_if = {
+		limit = {
+			faith = {
+				has_doctrine = doctrine_pluralism_fundamentalist
+			}
+			culture = {
+				has_cultural_tradition = tradition_polygamous
+			}
+		}
+		faith_allows_marry_to_someone_already_married_trigger = no
+	}
+	trigger_else = {
+		always = no
+	}
+}
+
+accepted_being_on_receiving_end_polygamy = {
+	NOT = {
+		culture = {
+			has_cultural_tradition = tradition_monogamous
+		}
+	}
+	OR = {
+		faith_allows_marry_to_someone_already_married_trigger = yes
+		AND = {
+			culture = {
+				has_cultural_tradition = tradition_polygamous
+			}
+			faith_invalidates_cultural_polygamy_when_marrying_to_someone_already_married_trigger = no
+		}
+	}
+}
+
+# -----------
+faith_allows_marriage_or_concubine_with_someone_with_concubines_trigger = {
+	trigger_if = {
+		limit = {
+			is_male = yes
+		}
+		faith_allows_females_to_have_concubine_trigger = yes
+	}
+	trigger_else_if = {
+		limit = {
+			is_female = yes
+		}
+		faith_allows_males_to_have_concubine_trigger = yes
+	}
+	trigger_else = {
+		always = no
+	}
+}
+
+faith_invalidates_cultural_concubines_when_marriage_or_concubine_with_someone_with_concubines_trigger = {
+	trigger_if = {
+		limit = {
+			faith = {
+				has_doctrine = doctrine_pluralism_fundamentalist
+			}
+			culture = {
+				has_cultural_tradition = tradition_concubines
+			}
+		}
+		faith_allows_marriage_or_concubine_with_someone_with_concubines_trigger = no
+	}
+	trigger_else = {
+		always = no
+	}
+}
+
+accepted_being_on_receiving_end_union_involving_concubines = {
+	NOT = {
+		culture = {
+			has_cultural_tradition = tradition_monogamous
+		}
+	}
+	OR = {
+		faith_allows_marriage_or_concubine_with_someone_with_concubines_trigger = yes
+		AND = {
+			culture = {
+				has_cultural_tradition = tradition_concubines
+			}
+			faith_invalidates_cultural_concubines_when_marriage_or_concubine_with_someone_with_concubines_trigger = yes
+		}
+	}
+}
+
+polygamous_marriage_accepted_from_point_of_view = {
+	NOT = {
+		culture = {
+			has_cultural_tradition = tradition_monogamous
+		}
+	}
+	trigger_if = {
+		limit = {
+			$CHARACTER$ = {
+				is_male = yes
+			}
+		}
+		OR = {
+			faith_allows_male_polygamy_trigger = yes
+			AND = {
+				culture = {
+					has_cultural_tradition = tradition_polygamous
+				}
+				faith = {
+					NOR = {
+						has_doctrine = doctrine_pluralism_fundamentalist
+						has_doctrine = doctrine_gender_female_dominated
+					}
+				}
+			}
+		}
+	}
+	trigger_else_if = {
+		limit = {
+			$CHARACTER$ = {
+				is_female = yes
+			}
+		}
+		OR = {
+			faith_allows_female_polygamy_trigger = yes
+			AND = {
+				culture = {
+					has_cultural_tradition = tradition_polygamous
+				}
+				faith = {
+					NOR = {
+						has_doctrine = doctrine_pluralism_fundamentalist
+						has_doctrine = doctrine_gender_male_dominated
+					}
+				}
+			}
+		}
+	}
+	trigger_else = {
+		always = no
+	}
+}
+
+concubine_union_accepted_from_point_of_view = {
+	NOT = {
+		culture = {
+			has_cultural_tradition = tradition_monogamous
+		}
+	}
+	trigger_if = {
+		limit = {
+			$CHARACTER$ = {
+				is_male = yes
+			}
+		}
+		OR = {
+			faith_allows_males_to_have_concubine_trigger = yes
+			AND = {
+				culture = {
+					has_cultural_tradition = tradition_concubines
+				}
+				faith = {
+					NOR = {
+						has_doctrine = doctrine_pluralism_fundamentalist
+						has_doctrine = doctrine_gender_female_dominated
+					}
+				}
+			}
+		}
+	}
+	trigger_else_if = {
+		limit = {
+			$CHARACTER$ = {
+				is_female = yes
+			}
+		}
+		OR = {
+			faith_allows_females_to_have_concubine_trigger = yes
+			AND = {
+				culture = {
+					has_cultural_tradition = tradition_concubines
+				}
+				faith = {
+					NOR = {
+						has_doctrine = doctrine_pluralism_fundamentalist
+						has_doctrine = doctrine_gender_male_dominated
+					}
+				}
+			}
+		}
+	}
+	trigger_else = {
+		always = no
+	}
+}
+
+clearly_believes_should_be_the_only_consort_of_partner_trigger = {
+	trigger_if = {
+		limit = {
+			is_male = yes
+		}
+		OR = {
+			culture = {
+				has_cultural_tradition = tradition_monogamous
+			}
+			OR = {
+				AND = {
+					faith = {
+						has_doctrine = doctrine_female_monogamy
+					}
+					NOT = {
+						culture = {
+							has_cultural_tradition = tradition_concubines
+						}
+					}
+				}
+			}
+		}
+	}
+	trigger_else_if = {
+		limit = {
+			is_female = yes
+		}
+		OR = {
+			culture = {
+				has_cultural_tradition = tradition_monogamous
+			}
+			OR = {
+				AND = {
+					faith = {
+						has_doctrine = doctrine_male_monogamy
+					}
+					NOT = {
+						culture = {
+							has_cultural_tradition = tradition_polygamous
+						}
+					}
+					NOT = {
+						culture = {
+							has_cultural_tradition = tradition_concubines
+						}
+					}
+				}
+			}
+		}
+	}
+	trigger_else = {
+		always = no
+	}
+}
+
+there_is_basis_for_believing_should_be_the_only_consort_of_partner_trigger = {
+	OR = {
+		culture = {
+			has_cultural_tradition = tradition_monogamous
+		}
+		AND = {
+			is_male = yes
+			faith = {
+				has_doctrine = doctrine_female_monogamy
+			}
+		}
+		AND = {
+			is_female = yes
+			faith = {
+				has_doctrine = doctrine_male_monogamy
+			}
+		}
+		AND = {
+			NOT = {
+				culture = {
+					has_cultural_tradition = tradition_polygamous
+				}
+			}
+			NOT = {
+				culture = {
+					has_cultural_tradition = tradition_concubines
+				}
+			}
+			NOT = {
+				faith = {
+					has_doctrine = tenet_polyamory
+				}
+			}
+		}
+	}
+}
+
+there_is_basis_for_believing_spouse_should_not_have_concubines_trigger = {
+	OR = {
+		culture = {
+			has_cultural_tradition = tradition_monogamous
+		}
+		AND = {
+			is_male = yes
+			faith = {
+				has_doctrine = doctrine_female_monogamy
+			}
+		}
+		AND = {
+			is_female = yes
+			faith = {
+				has_doctrine = doctrine_male_monogamy
+			}
+		}
+		AND = {
+			NOT = {
+				culture = {
+					has_cultural_tradition = tradition_concubines
+				}
+			}
+			NOT = {
+				faith = {
+					has_doctrine = tenet_polyamory
+				}
+			}
+			faith_allows_marriage_or_concubine_with_someone_with_concubines_trigger = no
+		}
+	}
+}
+
+there_is_basis_for_believing_spouse_should_not_have_other_spouses_trigger = {
+	OR = {
+		culture = {
+			has_cultural_tradition = tradition_monogamous
+		}
+		AND = {
+			is_male = yes
+			faith = {
+				has_doctrine = doctrine_female_monogamy
+			}
+		}
+		AND = {
+			is_female = yes
+			faith = {
+				has_doctrine = doctrine_male_monogamy
+			}
+		}
+		AND = {
+			NOT = {
+				culture = {
+					has_cultural_tradition = tradition_polygamous
+				}
+			}
+			faith_allows_marry_to_someone_already_married_trigger = no
+		}
+	}
+}
+
+no_problem_with_spouse_polygamy_trigger = {
+	faith = {
+		has_doctrine = tenet_polyamory
+	}
+	culture = {
+		has_cultural_tradition = tradition_polygamous
+	}
+	faith_allows_marry_to_someone_already_married_trigger = yes
+}
+
+no_problem_with_spouse_concubines_trigger = {
+	faith = {
+		has_doctrine = tenet_polyamory
+	}
+	culture = {
+		has_cultural_tradition = tradition_concubines
+	}
+	faith_allows_marriage_or_concubine_with_someone_with_concubines_trigger = yes
+}
+
+no_problem_with_consort_having_other_partners_trigger = {
+	faith = {
+		has_doctrine = tenet_polyamory
+	}
+	culture = {
+		has_cultural_tradition = tradition_concubines
+	}
+	faith_allows_marriage_or_concubine_with_someone_with_concubines_trigger = yes
+}
+
+can_potentially_accept_some_form_of_polygamous_union = {
+	NOT = {
+		culture = {
+			has_cultural_tradition = tradition_monogamous
+		}
+	}
+	OR = {
+		faith_allows_male_polygamy_trigger = yes
+		faith_allows_female_polygamy_trigger = yes
+		AND = {
+			culture = {
+				has_cultural_tradition = tradition_polygamous
+			}
+			NOT = {
+				faith = {
+					has_doctrine = doctrine_pluralism_fundamentalist
+				}
+			}
+		}
+	}
+}
+
+can_potentially_accept_some_form_of_concubine_union = {
+	NOT = {
+		culture = {
+			has_cultural_tradition = tradition_monogamous
+		}
+	}
+	OR = {
+		faith_allows_males_to_have_concubine_trigger = yes
+		faith_allows_females_to_have_concubine_trigger = yes
+		AND = {
+			culture = {
+				has_cultural_tradition = tradition_concubines
+			}
+			OR = {
+				faith = {
+					has_doctrine = tenet_rite
+				}
+				faith = {
+					has_doctrine = tenet_polyamory
+				}
+				NOT = {
+					faith = {
+						has_doctrine = doctrine_pluralism_fundamentalist
+					}
+				}
+			}
+		}
+	}
+}
+
+character_allowed_more_spouses = {
+	trigger_if = {
+		limit = {
+			OR = {
+				is_married = yes
+				exists = betrothed
+			}
+		}
+		is_ruler =  yes
+		can_potentially_have_more_than_one_spouses = yes 
+		realm_law_allows_multiple_spouses_for_character_gender = yes
+	}
+	number_of_remaining_spouses > 0		
+}
+
+character_allowed_more_concubines = {
+	is_ruler =  yes
+	can_potentially_take_concubines_trigger = yes
+	is_concubine = no
+	realm_law_allows_multiple_concubines_for_character_gender = yes
+	number_of_remaining_concubines > 0		
+}
